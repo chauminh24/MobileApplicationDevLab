@@ -1,0 +1,57 @@
+<style>
+  .main {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    /* Creates a 30% / 70% layout on large screens */
+    gap: 20px;
+    /* Optional: Adds space between columns */
+  }
+  .secondary {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* Creates a 30% / 70% layout on large screens */
+    gap: 20px;
+    /* Optional: Adds space between columns */
+  }
+
+  .column {
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Optional: Adds borders for visualization */
+    max-width: 100%;
+  }
+
+  .center-alignment {
+    text-align: center;
+  }
+
+  /* Media Query for Small Screens (e.g., mobile devices) */
+  @media (max-width: 768px) {
+    .main, .secondary {
+      grid-template-columns: 100%;
+      /* Switch to a single column layout */
+    }
+  }
+</style>
+
+<body>
+  <h1 style="text-align: center;">Dynamic Text Card</h1>
+  <div class="main">
+    <app-text-controls class="column"></app-text-controls>
+    <app-text-card class="column"></app-text-card>
+  </div>
+  <div class="secondary">
+    <app-greeting-cards-list class="column"></app-greeting-cards-list>
+    <app-weather class="column"></app-weather>
+  </div>
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+</body>
+<router-outlet />

@@ -1,0 +1,18 @@
+<div class="form-container">
+  <label for="font">Font:</label>
+  <select id="font" [(ngModel)]="selectedFont">
+    <option *ngFor="let font of fontsList" [value]="font">{{ font }}</option>
+  </select>
+
+  <label for="fontSize">Font Size:</label>
+  <input type="number" id="fontSize" [(ngModel)]="fontSize" (ngModelChange)="updateText()" /><br />
+
+  <label for="colorText">Text Color:</label>
+  <input type="color" id="colorText" [(ngModel)]="colorText" (ngModelChange)="updateText()" /><br />
+
+  <label for="cardBgColor">Card Background Color:</label>
+  <input type="color" id="cardBgColor" [(ngModel)]="cardBgColor" (ngModelChange)="updateCard()" /><br />
+
+  <label for="cardWidth">Card Width:</label>
+  <input type="text" id="cardWidth" [(ngModel)]="cardWidth" (ngModelChange)="updateCard()" />
+</div>

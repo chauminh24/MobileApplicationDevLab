@@ -1,0 +1,18 @@
+<div class="weather-container">
+    <h2>Weather in Galway</h2>
+  
+    <!-- Loading state -->
+    <p *ngIf="loading">Fetching weather data...</p>
+  
+    <!-- Error message -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+    <!-- Weather details -->
+    <div *ngIf="weatherData && !errorMessage">
+      <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
+      <p><strong>Weather:</strong> {{ weatherData.weather[0].description }}</p>
+      <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}%</p>
+      <p><strong>Wind Speed:</strong> {{ weatherData.wind.speed }} m/s</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div class="greeting-cards-container">
+    <h2>Greeting Cards</h2>
+  
+    <!-- Display loading message -->
+    <p *ngIf="loading">Loading greeting cards...</p>
+  
+    <!-- Display error message -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+    <!-- Display greeting cards -->
+    <div *ngIf="greetingCards.length > 0">
+      <div *ngFor="let card of greetingCards" class="card"
+           [style.background-color]="card.card_bg_color"
+           [style.width]="card.card_width">
+        
+        <p [style.color]="card.text_color"
+           [style.font-family]="card.text_font"
+           [style.font-size]="card.text_font_size">
+          {{ card.text }}
+        </p>
+      </div>
+    </div>
+  
+    <!-- Display a message if no cards are available -->
+    <p *ngIf="!loading && greetingCards.length === 0">No greeting cards available.</p>
+  </div>
+  
