@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+/* Minh Chau Nguyen g00425239 */
+<ion-content [fullscreen]="true">
+  <ion-accordion-group>
+    <ion-accordion>
+      <ion-item slot="header">
+        <ion-label>Filters</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item>
+            <ion-label>Title: </ion-label>
+            <ion-input [(ngModel)]="searchTitle" placeholder="Enter movie title"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-radio-group [(ngModel)]="searchType">
+              <ion-item>
+                <ion-label>Movie</ion-label>
+                <ion-radio slot="start" value="movie"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Series</ion-label>
+                <ion-radio slot="start" value="series"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Episode</ion-label>
+                <ion-radio slot="start" value="episode"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-item>
+          <ion-item>
+            <ion-label>Year: {{ searchYear }}</ion-label>
+            <ion-range min="1965" max="2025" [(ngModel)]="searchYear">
+              <ion-label slot="start">1965</ion-label>
+              <ion-label slot="end">2025</ion-label>
+            </ion-range>
+          </ion-item>
+          <ion-button expand="full" (click)="fetchMovies()">Search</ion-button>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-list>
+    <ion-item *ngFor="let movie of movies">
+      <ion-thumbnail slot="start">
+        <img [src]="movie.Poster" alt="Poster">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ movie.Title }}</h2>
+        <p>{{ movie.Year }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
